@@ -1,0 +1,152 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffff00;
+  /* Fondo amarillo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  opacity: 0;
+  /* Inicialmente invisible */
+  transform: translateY(20px);
+  /* Posiciona el formulario hacia abajo */
+  animation: fadeIn 1s ease-out forwards;
+  /* Efecto de fade-in */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-container img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.form-container h2 {
+  color: #0044cc;
+  /* Azul del logo */
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #0044cc;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  /* Asegura uniformidad */
+}
+
+.form-group input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.form-container button {
+  width: 100%;
+  background-color: #0044cc;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: #003399;
+}
+
+.terms-link {
+  color: #0044cc;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 500px;
+  max-height: 80%;
+  /* Limitar la altura del modal */
+  overflow-y: auto;
+  /* Hacer que el contenido sea desplazable */
+  text-align: left;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: #0044cc;
+}
+
+.modal-content p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.modal-close {
+  background: #0044cc;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0;
+  font-size: 1rem;
+}
+
+.modal-close:hover {
+  background: #003399;
+}
+
+
+

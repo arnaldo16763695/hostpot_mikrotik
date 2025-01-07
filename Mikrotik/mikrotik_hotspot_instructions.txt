@@ -1,0 +1,60 @@
+
+Paso 1: Cargar la carpeta login@lader al sistema de archivos del MikroTik
+
+1. Preparar los Archivos:
+   - Asegúrate de que los archivos del portal de inicio de sesión (como login.html, status.html, error.html, etc.) estén dentro de una carpeta llamada login@lader.
+   - Verifica que estos archivos estén completos y bien configurados.
+
+2. Cargar la Carpeta al MikroTik:
+   - Con WinBox:
+     - Abre WinBox y conéctate al router.
+     - Ve a la pestaña Files.
+     - Arrastra la carpeta login@lader desde tu computadora al área de archivos del router.
+   - Con FTP:
+     - Usa un cliente FTP como FileZilla o WinSCP.
+     - Conéctate al router con la IP, usuario y contraseña del administrador.
+     - Carga la carpeta login@lader al directorio raíz del sistema de archivos.
+
+3. Verificar la Subida:
+   - Abre la terminal de MikroTik y ejecuta:
+     /file print
+   - Asegúrate de que la carpeta login@lader aparezca en la lista.
+
+4. Prueba de Archivos HTML:
+   - Si tienes una página personalizada, revisa que el archivo principal (login.html) esté bien diseñado y cargue correctamente desde la carpeta.
+
+---
+
+Paso 2: Ejecutar el Script desde la Consola
+
+1. Preparar el Script:
+   - Crea un archivo en tu computadora llamado install_hotspot.rsc.
+   - Dentro de este archivo, incluye las configuraciones necesarias para el Hotspot.
+
+2. Subir el Script al Router:
+   - Usa WinBox o FTP para cargar el archivo install_hotspot.rsc al sistema de archivos del MikroTik.
+
+3. Ejecutar el Script:
+   - Abre la consola del router desde WinBox o mediante SSH.
+   - Ejecuta el comando:
+     /import file-name=install_hotspot.rsc
+
+4. Verificar la Ejecución:
+   - En la consola, revisa los logs para asegurarte de que el script se ejecutó correctamente:
+     /log print
+
+---
+
+Revisión Final
+
+1. Comprobar Configuración del Hotspot:
+   - Usa el siguiente comando para revisar los perfiles Hotspot configurados:
+     /ip hotspot profile print
+
+2. Probar el Portal Hotspot:
+   - Conéctate a la red Hotspot desde un dispositivo cliente.
+   - Abre un navegador e intenta acceder a cualquier sitio web. Deberías ser redirigido al portal de inicio de sesión login.internet.com.
+
+---
+
+
