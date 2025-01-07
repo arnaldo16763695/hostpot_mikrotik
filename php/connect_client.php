@@ -1,7 +1,7 @@
 <?php
 // Incluir la conexión
 require 'conexion.php';
-
+require 'routeros_api/connectmk.php';
 // Habilitar la visualización de errores (solo para desarrollo, no en producción)
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -33,8 +33,27 @@ if (!$result) {
 if ($result->num_rows > 0) {
     $sql_update = "UPDATE registros SET mac = '$mac' WHERE rut = '$rut'";
 
-    if ($con->query($sql_update) === TRUE) {     
-    echo json_encode(["status" => "success", "message" => "Bienvenido"]);
+    if ($con->query($sql_update) === TRUE) {  
+        $client_ip = $_SERVER['REMOTE_ADDR'];
+        if ($API->connect($ip, $username, $password)) {
+            $response = $API->comm('/ip/hotspot/host/add', [
+                'mac-address' => $mac,
+                'address'     => $client_ip, // Dirección IP del cliente
+                'server'      => 'hotspot1', // Nombre del servidor Hotspot
+            ]);
+
+            if (isset($response['!trap'])) {
+                // echo 'Error: ' . $response['!trap'][0]['message'];
+                echo json_encode(["status" => "error", "message" => "Error: " . $response['!trap'][0]['message'] ]);
+            } else {
+                echo json_encode(["status" => "success", "message" => "Bienvenido"]);
+            }
+        } else {
+            echo json_encode(["status" => "error", "message" => "Error en conexion con mikrotik: " ]);
+        }
+
+
+
     } else {
         echo json_encode(["status" => "error", "message" => "Error al guardar los datos: " . $con->error]);
     }

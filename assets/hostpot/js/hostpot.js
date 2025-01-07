@@ -14,7 +14,7 @@ function closeModal() {
 
 document.getElementById('registrationForm').addEventListener('submit', async function (e) {
     e.preventDefault();
-
+    // return alert('hola arnaldo');
     const formData = new FormData(this);
     const macAddress = document.getElementById('mac').value; // Obtener la MAC del campo oculto
     const responseDiv = document.getElementById("responseMessage");
@@ -31,9 +31,9 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
             responseDiv.classList.replace("d-none", "d-block");
             responseDiv.classList.add("alert-success");
             responseDiv.textContent = result.message;
-            setTimeout(() => {
-                window.location.href = `http://login-ae.internet.com/login?username=T-${macAddress}`; // Redirigir con la MAC
-            }, 1500);
+            // setTimeout(() => {
+            //     window.location.href = `http://login-ae.internet.com/login?username=T-${macAddress}`; // Redirigir con la MAC
+            // }, 1500);
         } else {
             responseDiv.classList.replace("d-none", "d-block");
             responseDiv.classList.add("alert-danger");
@@ -43,7 +43,7 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
             }, 1500);
         }
     } catch (error) {
-        responseDiv.textContent = "Error en la conexión. Intente nuevamente." + error;
+        responseDiv.textContent = "Error en la conexión. Intente nuevamente :" + error;
         responseDiv.classList.replace("d-none", "d-block");
         responseDiv.classList.add("alert-danger");
     }
