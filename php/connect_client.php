@@ -1,6 +1,6 @@
 <?php
 // Incluir la conexión
-require '../routeros_api/connectmk.php';
+// require '../routeros_api/connectmk.php';
 require 'conexion.php';
 // Habilitar la visualización de errores (solo para desarrollo, no en producción)
 ini_set('display_errors', 1);

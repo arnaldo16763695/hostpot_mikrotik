@@ -31,9 +31,9 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
             responseDiv.classList.replace("d-none", "d-block");
             responseDiv.classList.add("alert-success");
             responseDiv.textContent = result.message;
-            // setTimeout(() => {
-            //     window.location.href = `http://login-ae.internet.com/login?username=T-${macAddress}`; // Redirigir con la MAC
-            // }, 1500);
+            setTimeout(() => {
+                window.location.href = `http://login-ae.internet.com/login?username=T-${macAddress}`; // Redirigir con la MAC
+            }, 1500);
         } else {
             responseDiv.classList.replace("d-none", "d-block");
             responseDiv.classList.add("alert-danger");

@@ -10,7 +10,7 @@ $API = new RouterosAPI();
 $API->debug = false;
 $API->port = $port;
 
-if ($API->connect($ip, $username, $password)) {
+// if ($API->connect($ip, $username, $password)) {
 
     // $response = $API->comm('/interface/print');
 
@@ -27,21 +27,21 @@ if ($API->connect($ip, $username, $password)) {
     //     echo "No se encontraron interfaces.\n";
     // }
 
-    $response = $API->comm('/ip/hotspot/active/login', [
-        'mac-address' => '00:E1:8C:55:C2:97',
-        'user' => 'T-00:E1:8C:55:C2:97',
-        'ip'     => '192.168.45.251', // Dirección IP del cliente
-        // 'server'      => 'hotspot1', // Nombre del servidor Hotspot
-    ]);
+    // $response = $API->comm('/ip/hotspot/active/login', [
+    //     'mac-address' => '94:E2:3C:A6:CE:1C',
+    //     'user' => 'T-94:E2:3C:A6:CE:1C',
+    //     'ip'     => '192.168.45.247', // Dirección IP del cliente
+    //     // 'server'      => 'hotspot1', // Nombre del servidor Hotspot
+    // ]);
 
-    if (isset($response['!trap'])) {
-        // echo 'Error: ' . $response['!trap'][0]['message'];
-        echo 'fallita';
-    } else {
-        echo 'exito';
-    }
+    // if (isset($response['!trap'])) {
+    //     // echo 'Error: ' . $response['!trap'][0]['message'];
+    //     echo 'fallita';
+    // } else {
+    //     echo 'exito';
+    // }
 
-    $API->disconnect(); // Desconectar de la API
-} else {
-    echo 'falló conexion';
-}
+    // $API->disconnect(); // Desconectar de la API
+// } else {
+//     echo 'falló conexion';
+// }
