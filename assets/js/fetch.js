@@ -1,6 +1,44 @@
 document.addEventListener('DOMContentLoaded', function () {
     const responseDiv = document.getElementById("responseMessage");
 
+    //login
+    const formLogin = document.getElementById("form-login");
+    if (formLogin) {
+        formLogin.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            try {
+                const response = await fetch('php/login.php', {
+                    method: 'POST',
+                    body: formData,
+                })
+                const result = await response.json();
+                if (responseDiv) {
+                    if (result.status === 'success') {
+                        responseDiv.classList.replace("d-none", "d-block");
+                        responseDiv.classList.add("alert-success");
+                        responseDiv.textContent = `${result.message}  ${result.data.nombre}  😉 `;
+                        setTimeout(function () {
+                            responseDiv.classList.replace("d-block", "d-none");
+                            responseDiv.classList.remove("alert-success");
+                            window.location.href ='index.php?page=home';
+                        }, 2000)
+                    } else {
+                        responseDiv.classList.replace("d-none", "d-block");
+                        responseDiv.classList.add("alert-danger");
+                        responseDiv.textContent = result.message + ' ☹';
+                        setTimeout(function () {
+                            responseDiv.classList.replace("d-block", "d-none");
+                            responseDiv.classList.remove("alert-danger");
+                        }, 2000)
+                    }
+                }
+            } catch (error) {
+
+            }
+        })
+    }
+
     // Manejar el formulario "form_add_client" si está presente
     const formAddClient = document.getElementById("form_add_client");
     if (formAddClient) {
@@ -175,29 +213,29 @@ document.addEventListener('DOMContentLoaded', function () {
                             // return console.log(result.data.mac)
                             if (responseDiv) {
                                 if (result.status === "success") {
-                                   
-                                   
-                                /*     fetch(`http://login-ae.internet.com/logout?username=T-${result.data.mac}`)
-                                        .then(response => {
-                                            if (response.ok) {
-                                                console.log("Sesión cerrada exitosamente");
-                                                if (responseDiv.classList.contains("alert-danger")) responseDiv.classList.remove("alert-danger")
+
+
+                                    /*     fetch(`http://login-ae.internet.com/logout?username=T-${result.data.mac}`)
+                                            .then(response => {
+                                                if (response.ok) {
+                                                    console.log("Sesión cerrada exitosamente");
+                                                    if (responseDiv.classList.contains("alert-danger")) responseDiv.classList.remove("alert-danger")
+                                                        responseDiv.classList.replace("d-none", "d-block");
+                                                        responseDiv.classList.add("alert-success");
+                                                        responseDiv.textContent = 'Sesión cerrada exitosamente';
+                                                } else {
+                                                    console.error("Error al cerrar la sesión");
                                                     responseDiv.classList.replace("d-none", "d-block");
-                                                    responseDiv.classList.add("alert-success");
-                                                    responseDiv.textContent = 'Sesión cerrada exitosamente';
-                                            } else {
-                                                console.error("Error al cerrar la sesión");
-                                                responseDiv.classList.replace("d-none", "d-block");
-                                                responseDiv.classList.add("alert-danger");
-                                                responseDiv.textContent = 'Error al cerrar sesión';
-                                                setTimeout(() => {
-                                                    responseDiv.classList.add("d-none");
-                                                }, 3000);
-                                            }
-                                        })
-                                        .catch(error => {
-                                            console.error("Error en la solicitud:", error);
-                                        }); */
+                                                    responseDiv.classList.add("alert-danger");
+                                                    responseDiv.textContent = 'Error al cerrar sesión';
+                                                    setTimeout(() => {
+                                                        responseDiv.classList.add("d-none");
+                                                    }, 3000);
+                                                }
+                                            })
+                                            .catch(error => {
+                                                console.error("Error en la solicitud:", error);
+                                            }); */
                                     window.open(`http://login-ae.internet.com/logout?username=T-${result.data.mac}`, '_blank');
 
                                 } else {
@@ -208,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         responseDiv.classList.add("d-none");
                                     }, 3000);
                                 }
-                            }                          
+                            }
                         }
                     });
 
