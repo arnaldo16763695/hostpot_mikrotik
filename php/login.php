@@ -6,7 +6,7 @@ if (!empty($_POST)) {
 	if (isset($_POST["username"]) && isset($_POST["password"])) {
 		// Validar que los datos no estén vacíos y eliminar espacios extra
 		$username = trim($_POST["username"]);
-		$password = trim($_POST["password"]);
+		$password = $_POST["password"];
 
 		if ($username !== "" && $password !== "") {
 			// Preparar la consulta para evitar inyecciones SQL

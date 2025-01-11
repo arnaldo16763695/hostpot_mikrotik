@@ -12,7 +12,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body>
+<body class="bg-light">
   <div class="min-vh-100 position-relative">
 
     <nav style="background-color: #1A237E;" class="navbar navbar-expand-lg" data-bs-theme="dark">
