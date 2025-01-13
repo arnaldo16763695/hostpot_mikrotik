@@ -10,7 +10,7 @@
    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="shortcut icon" href="LOGO_CRUZ_Wifi.png" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon-32x32.png" type="image/x-icon">
 </head>
 
 <body class="bg-light">
