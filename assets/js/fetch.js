@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         setTimeout(function () {
                             responseDiv.classList.replace("d-block", "d-none");
                             responseDiv.classList.remove("alert-success");
-                            window.location.href ='index.php?page=home';
+                            window.location.href = 'index.php?page=home';
                         }, 2000)
                     } else {
                         responseDiv.classList.replace("d-none", "d-block");
@@ -35,6 +35,41 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             } catch (error) {
 
+            }
+        })
+    }
+
+    //logout
+    const linkLogout = document.getElementById('link-logout');
+    if (linkLogout) {
+        linkLogout.addEventListener('click', function () {
+            try {
+                Swal.fire({
+                    title: "¿Estás seguro/a?",
+                    text: "Vas a cerrar la sesión",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    cancelButtonText: "Cancelar",
+                    confirmButtonText: "Sí, cerra sesión!"
+                }).then(async (result) => {
+                    if (result.isConfirmed) {
+                        const response = await fetch("php/logout.php");
+                        const res = await response.json();                   
+
+                        if (res.status === 'success') {
+                            window.location.href = 'index.php?page=login';
+                        }
+                    }
+
+
+
+
+                });
+
+            } catch (error) {
+                console.log(error)
             }
         })
     }
@@ -154,10 +189,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                     setTimeout(() => {
                                         window.location.href = `index.php?page=home`;
                                     }, 1000);
-                                    if (responseDiv.classList.contains("alert-danger")) responseDiv.classList.remove("alert-danger")
-                                    responseDiv.classList.replace("d-none", "d-block");
-                                    responseDiv.classList.add("alert-success");
-                                    responseDiv.textContent = result.message;
+                                    // if (responseDiv.classList.contains("alert-danger")) responseDiv.classList.remove("alert-danger")
+                                    // responseDiv.classList.replace("d-none", "d-block");
+                                    // responseDiv.classList.add("alert-success");
+                                    // responseDiv.textContent = result.message;
                                 } else {
                                     responseDiv.classList.replace("d-none", "d-block");
                                     responseDiv.classList.add("alert-danger");

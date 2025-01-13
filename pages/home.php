@@ -70,7 +70,7 @@ if (!$row4 = mysqli_query($con, "SELECT * FROM registros"))
                                     <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
                                     <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
                                 </svg> </a>
-                            <a href="#" class="btn-disconnect" id="<?php echo $row3['id'] ?>" title="Desconectar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <a class="d-none" href="#" class="btn-disconnect" id="<?php echo $row3['id'] ?>" title="Desconectar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
                                     <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
                                     <path d="M9 12h12l-3 -3"></path>
                                     <path d="M18 15l3 -3"></path>

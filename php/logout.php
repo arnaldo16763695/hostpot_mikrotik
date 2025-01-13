@@ -1,4 +1,5 @@
 <?php
 session_start();
 session_destroy();
-print "<script>window.location='../index.php?page=login';</script>";
+die(json_encode(["status" => "success"]));
+
